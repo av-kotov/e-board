@@ -1,0 +1,12 @@
+
+
+/* Start:/local/templates/furniture_dark-blue/components/bitrix/system.auth.authorize/.default/style.min.css?1778784362463*/
+div.login-form input.input-field{vertical-align:middle}div.login-form span.bx-auth-secure{background-color:#fffae3;border:1px solid #dedbc8;padding:2px;display:inline-block;vertical-align:middle;margin-bottom:9px}div.login-form div.bx-auth-secure-icon {background-image:url(/local/templates/furniture_dark-blue/components/bitrix/system.auth.authorize/.default/images/sec.png); background-repeat:no-repeat; background-position:center; width:21px; height:21px;} div.login-form div.bx-auth-secure-unlock {background-image:url(/local/templates/furniture_dark-blue/components/bitrix/system.auth.authorize/.default/images/sec-unlocked.png);}
+/* End */
+
+
+/* Start:/bitrix/components/bitrix/system.show_message/templates/.default/style.min.css?177878414551*/
+font.errortext{color:red}font.notetext{color:green}
+/* End */
+/* /local/templates/furniture_dark-blue/components/bitrix/system.auth.authorize/.default/style.min.css?1778784362463 */
+/* /bitrix/components/bitrix/system.show_message/templates/.default/style.min.css?177878414551 */

@@ -1,0 +1,7 @@
+<?
+if($INCLUDE_FROM_CACHE!='Y')return false;
+$datecreate = '001779307916';
+$dateexpire = '001779394316';
+$ser_content = 'a:2:{s:7:"CONTENT";s:0:"";s:4:"VARS";a:1:{i:0;a:2:{s:6:"DOMAIN";s:11:"e-board.loc";s:8:"UALIAS_0";s:2:"s1";}}}';
+return true;
+?>

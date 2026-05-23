@@ -1,0 +1,155 @@
+
+
+/* Start:/local/templates/furniture_dark-blue/components/bitrix/news/board-ads/bitrix/news.detail/.default/style.css?17789720172373*/
+.ads-toolbar {
+	display: flex;
+	/*justify-content: flex-end;*/
+	margin: 0 0 24px;
+}
+
+a.btn,
+.ads-toolbar a {
+	display: inline-block;
+	padding: 12px 24px;
+	border: none;
+	border-radius: 6px;
+	font-size: 15px;
+	font-weight: 600;
+	text-decoration: none !important;
+	cursor: pointer;
+	transition: background 0.15s ease, transform 0.05s ease;
+}
+
+a.btn--primary,
+.ads-toolbar a.btn--primary {
+	background: #e8801a;
+	color: #ffffff !important;
+}
+
+a.btn--primary:hover,
+.ads-toolbar a.btn--primary:hover {
+	background: #d66c0e;
+	color: #ffffff !important;
+	text-decoration: none !important;
+}
+
+a.btn--primary:active {
+	transform: translateY(1px);
+}
+
+.news-detail {
+	margin: 24px 0;
+	padding: 32px;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	line-height: 1.6;
+	color: #333;
+}
+
+.news-detail .news-detail {
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	border: none;
+	border-radius: 0;
+}
+
+.news-detail .detail_picture {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0 0 24px 0;
+	border-radius: 6px;
+}
+
+.news-detail .news-date {
+	display: inline-block;
+	margin-bottom: 16px;
+	padding: 4px 12px;
+	background: #f0f4f8;
+	color: #5a6776;
+	font-size: 13px;
+	border-radius: 12px;
+}
+
+.news-detail h3 {
+	margin: 0 0 16px 0;
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #1a1a1a;
+}
+
+.news-detail > .news-detail > p {
+	margin: 0 0 20px 0;
+	font-size: 17px;
+	color: #4a5360;
+	font-weight: 500;
+}
+
+.news-detail .news-detail {
+	font-size: 16px;
+}
+
+.ad-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 24px;
+	padding-top: 24px;
+	border-top: 1px solid #eef0f3;
+}
+
+.ad-meta__item {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 14px;
+	background: #f7f8fa;
+	border: 1px solid #e8ebef;
+	border-radius: 6px;
+	font-size: 14px;
+}
+
+.ad-meta__name {
+	color: #8a93a0;
+	font-weight: 400;
+}
+
+.ad-meta__name::after {
+	content: ":";
+}
+
+.ad-meta__value {
+	color: #1a1a1a;
+	font-weight: 600;
+}
+
+.news-detail + p {
+	margin-top: 20px;
+}
+
+.news-detail + p a {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 10px 18px;
+	background: transparent;
+	color: #1a3a73;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+	border: 2px solid #1a3a73;
+	border-radius: 6px;
+	transition: all 0.15s ease;
+}
+
+.news-detail + p a:hover {
+	background: #1a3a73;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* End */
+/* /local/templates/furniture_dark-blue/components/bitrix/news/board-ads/bitrix/news.detail/.default/style.css?17789720172373 */

@@ -1,0 +1,119 @@
+
+
+/* Start:/local/templates/furniture_dark-blue/components/bitrix/news/board/bitrix/news.detail/.default/style.css?17788492122094*/
+/* Контейнер детальной */
+.news-detail {
+	margin: 24px 0;
+	padding: 32px;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	line-height: 1.6;
+	color: #333;
+}
+
+/* Картинка детальной */
+.news-detail .detail_picture {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0 0 24px 0;
+	border-radius: 6px;
+}
+
+/* Дата */
+.news-detail .news-date {
+	display: inline-block;
+	margin-bottom: 16px;
+	padding: 4px 12px;
+	background: #f0f4f8;
+	color: #5a6776;
+	font-size: 13px;
+	border-radius: 12px;
+}
+
+/* Заголовок */
+.news-detail h3 {
+	margin: 0 0 16px 0;
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #1a1a1a;
+}
+
+/* Анонс (жирный, как лид) */
+.news-detail > .news-detail > p {
+	margin: 0 0 20px 0;
+	font-size: 17px;
+	color: #4a5360;
+	font-weight: 500;
+}
+
+/* Внутренний контейнер */
+.news-detail .news-detail {
+	font-size: 16px;
+}
+
+/* === Блок свойств — чипы === */
+.ad-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 24px;
+	padding-top: 24px;
+	border-top: 1px solid #eef0f3;
+}
+
+.ad-meta__item {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 14px;
+	background: #f7f8fa;
+	border: 1px solid #e8ebef;
+	border-radius: 6px;
+	font-size: 14px;
+}
+
+.ad-meta__name {
+	color: #8a93a0;
+	font-weight: 400;
+}
+
+.ad-meta__name::after {
+	content: ":";
+}
+
+.ad-meta__value {
+	color: #1a1a1a;
+	font-weight: 600;
+}
+
+/* Ссылка "← Назад к списку новостей" под карточкой детальной */
+a[href*="LIST_PAGE_URL"],
+.bx-newslist-back-link,
+body .news-detail + a {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: 20px;
+	padding: 10px 18px;
+	background: transparent;
+	color: #1a3a73;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+	border: 2px solid #1a3a73;
+	border-radius: 6px;
+	transition: all 0.15s ease;
+}
+
+a[href*="LIST_PAGE_URL"]:hover,
+.bx-newslist-back-link:hover,
+body .news-detail + a:hover {
+	background: #1a3a73;
+	color: #ffffff;
+	text-decoration: none;
+}
+/* End */
+/* /local/templates/furniture_dark-blue/components/bitrix/news/board/bitrix/news.detail/.default/style.css?17788492122094 */
