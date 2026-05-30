@@ -1,2 +1,0 @@
-<?php
-$MESS["LANDING_INTRANET_SETTINGS_VIBE_TITLE"] = "Start page";

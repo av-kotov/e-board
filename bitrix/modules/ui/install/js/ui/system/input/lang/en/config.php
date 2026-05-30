@@ -1,5 +1,0 @@
-<?php
-$MESS["UI_SYSTEM_INPUT_COPIED"] = "Copied";
-$MESS["UI_SYSTEM_INPUT_COPY_TO_CLIPBOARD_ARIA"] = "Copy to Clipboard";
-$MESS["UI_SYSTEM_INPUT_HIDE_PASSWORD_ARIA"] = "Hide password";
-$MESS["UI_SYSTEM_INPUT_SHOW_PASSWORD_ARIA"] = "Show password";

@@ -1,2 +1,0 @@
-<?php
-$MESS["UI_SYSTEM_ALERT_CLOSE_BUTTON_LABEL_ARIA"] = "Close";

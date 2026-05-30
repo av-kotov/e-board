@@ -1,2 +1,0 @@
-<?php
-$MESS["REST_V3_EXCEPTION_METHODNOTFOUNDEXCEPTION"] = 'Method "#METHOD#" was not found.';

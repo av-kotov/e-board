@@ -1,2 +1,0 @@
-<?php
-$MESS["REST_V3_EXCEPTION_INVALIDFILTEREXCEPTION"] = 'Invalid filter "#FILTER#".';

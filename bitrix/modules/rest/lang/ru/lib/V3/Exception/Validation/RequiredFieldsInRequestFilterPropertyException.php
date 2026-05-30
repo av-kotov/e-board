@@ -1,2 +1,0 @@
-<?php
-$MESS['REST_V3_EXCEPTION_VALIDATION_REQUIREDFIELDSINREQUESTFILTERPROPERTYEXCEPTION'] = 'Требуется указать фильтр по обязательному полю `#FIELD#`';

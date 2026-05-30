@@ -1,2 +1,0 @@
-<?php
-$MESS["REST_V3_EXCEPTION_CLASSREQUIREATTIBUTEEXCEPTION"] = 'Class "#CLASS#" requires attribute "#ATTRIBUTE#".';

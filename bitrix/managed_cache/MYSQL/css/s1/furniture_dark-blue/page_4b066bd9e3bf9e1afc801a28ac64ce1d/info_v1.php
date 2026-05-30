@@ -1,1 +1,0 @@
-<?php $filesInfo = ["/local/templates/furniture_dark-blue/components/bitrix/iblock.element.add.form/form-ads/style.css" => "17790111112629","/bitrix/components/bitrix/system.show_message/templates/.default/style.css" => "177878414551",]; ?>

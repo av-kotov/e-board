@@ -1,0 +1,13 @@
+/bitrix/
+/upload/
+
+.DS_Store
+*.log
+*.tmp
+/bitrix/*.log
+
+
+/bitrix/php_interface/dbconn.php
+/local/php_interface/dbconn.php
+
+test.php
