@@ -88,9 +88,12 @@ $APPLICATION->SetTitle("Объявления");
 		"USE_REVIEW" => "N",
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
+		"COMPONENT_TEMPLATE" => "board-new",
+		"IMG_HEIGHT" => "200",
+		"IMG_WIDTH" => "200",
 		"VARIABLE_ALIASES" => [
-			"ELEMENT_ID" => "ELEMENT_ID",
 			"SECTION_ID" => "SECTION_ID",
+			"ELEMENT_ID" => "ELEMENT_ID",
 		]
 	],
 	false

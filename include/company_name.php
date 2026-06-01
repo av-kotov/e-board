@@ -1,1 +1,1 @@
-<img src="/include/bx_default_logo.gif" alt="" />
+<img width="220" src="/upload/avos_new.png" height="120">
