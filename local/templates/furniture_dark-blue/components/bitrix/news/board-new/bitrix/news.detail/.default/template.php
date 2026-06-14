@@ -1,15 +1,27 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+
+\bitrix\Main\Page\Asset::getInstance()->addCss("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
+\bitrix\Main\Page\Asset::getInstance()->addJs("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js");
+
+?>
 <div class="news-detail">
 
-    <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arResult["DETAIL_PICTURE"])):?>
-        <img class="detail_picture"
-             src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>"
-             width="<?=$arResult["DETAIL_PICTURE"]["WIDTH"]?>"
-             height="<?=$arResult["DETAIL_PICTURE"]["HEIGHT"]?>"
-             alt="<?=$arResult["NAME"]?>"
-             title="<?=$arResult["NAME"]?>" />
-    <?endif?>
-
+    <?php if (!empty($arResult["GALLERY"])): ?>
+        <?php if (count($arResult["GALLERY"]) > 1): ?>
+            <div class="swiper detail-gallery">
+                <div class="swiper-wrapper">
+                    <?php foreach ($arResult["GALLERY"] as $src): ?>
+                        <div class="swiper-slide"><img src="<?=$src?>" alt="<?=$arResult["NAME"]?>"></div>
+                    <?php endforeach ?>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        <?php else: ?>
+            <img class="detail_picture" src="<?=$arResult["GALLERY"][0]?>" alt="<?=$arResult["NAME"]?>">
+        <?php endif ?>
+    <?php endif ?>
     <?if($arParams["DISPLAY_DATE"]!="N" && $arResult["DISPLAY_ACTIVE_FROM"]):?>
         <div class="news-date"><?=$arResult["DISPLAY_ACTIVE_FROM"]?></div>
     <?endif;?>
@@ -60,3 +72,46 @@
         <?endif;?>
     </div>
 </div>
+
+
+<?php if (!empty($GLOBALS["similarFilter"])): ?>
+    <section class="similar-ads">
+        <h3 class="similar-ads__title">Похожие объявления</h3>
+        <?php $APPLICATION->IncludeComponent("bitrix:news.list", "similar", [
+                "IBLOCK_TYPE"   => $arParams["IBLOCK_TYPE"],
+                "IBLOCK_ID"     => $arParams["IBLOCK_ID"],
+                "NEWS_COUNT"    => 8,
+                "FILTER_NAME"   => "similarFilter",
+                "SORT_BY1"      => "ID",
+                "SORT_ORDER1"   => "DESC",
+                "PROPERTY_CODE" => ["PRICE", "CITY"],
+                "CACHE_TYPE"    => "N",
+                "SET_TITLE"     => "N",
+                "SET_STATUS_404"=> "N",
+                "DISPLAY_DATE"  => "N",
+                "DISPLAY_PREVIEW_TEXT" => "N",
+                "AJAX_MODE"     => "N",
+        ], false, ["HIDE_ICONS" => "Y"]); ?>
+    </section>
+<?php endif; ?>
+
+<?php if (!empty($GLOBALS["sellerFilter"])): ?>
+    <section class="similar-ads">
+        <h3 class="similar-ads__title">Другие объявления продавца</h3>
+        <?php $APPLICATION->IncludeComponent("bitrix:news.list", "similar", [
+                "IBLOCK_TYPE"   => $arParams["IBLOCK_TYPE"],
+                "IBLOCK_ID"     => $arParams["IBLOCK_ID"],
+                "NEWS_COUNT"    => 8,
+                "FILTER_NAME"   => "sellerFilter",
+                "SORT_BY1"      => "ID",
+                "SORT_ORDER1"   => "DESC",
+                "PROPERTY_CODE" => ["PRICE", "CITY"],
+                "CACHE_TYPE"    => "N",
+                "SET_TITLE"     => "N",
+                "SET_STATUS_404"=> "N",
+                "DISPLAY_DATE"  => "N",
+                "DISPLAY_PREVIEW_TEXT" => "N",
+                "AJAX_MODE"     => "N",
+        ], false, ["HIDE_ICONS" => "Y"]); ?>
+    </section>
+<?php endif; ?>
