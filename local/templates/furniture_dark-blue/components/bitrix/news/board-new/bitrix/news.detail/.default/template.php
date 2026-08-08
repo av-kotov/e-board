@@ -1,11 +1,12 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
-\bitrix\Main\Page\Asset::getInstance()->addCss("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
-\bitrix\Main\Page\Asset::getInstance()->addJs("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js");
+//\bitrix\Main\Page\Asset::getInstance()->addCss("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
+//\bitrix\Main\Page\Asset::getInstance()->addJs("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js");
 
+//$this->addExternalCss("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
+//$this->addExternalJs("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js");
 ?>
 <div class="news-detail">
-
     <?php if (!empty($arResult["GALLERY"])): ?>
         <?php if (count($arResult["GALLERY"]) > 1): ?>
             <div class="swiper detail-gallery">
@@ -60,12 +61,18 @@
                     <div class="ad-meta__item">
                         <span class="ad-meta__name"><?=$arProperty["NAME"]?></span>
                         <span class="ad-meta__value">
-                            <?if(is_array($arProperty["DISPLAY_VALUE"])):?>
-                                <?=implode(" / ", $arProperty["DISPLAY_VALUE"])?>
-                            <?else:?>
-                                <?=$arProperty["DISPLAY_VALUE"]?>
-                            <?endif?>
-                        </span>
+            <?if($pid == "PRICE"):?>
+                <?if($arProperty["VALUE"] > 0):?>
+                    <?=number_format($arProperty["VALUE"], 0, '', ' ')?> ₽
+                <?else:?>
+                    Цена договорная
+                <?endif?>
+            <?elseif(is_array($arProperty["DISPLAY_VALUE"])):?>
+                <?=implode(" / ", $arProperty["DISPLAY_VALUE"])?>
+            <?else:?>
+                <?=$arProperty["DISPLAY_VALUE"]?>
+            <?endif?>
+        </span>
                     </div>
                 <?endforeach;?>
             </div>
@@ -91,7 +98,7 @@
                 "DISPLAY_DATE"  => "N",
                 "DISPLAY_PREVIEW_TEXT" => "N",
                 "AJAX_MODE"     => "N",
-        ], false, ["HIDE_ICONS" => "Y"]); ?>
+        ], $component, ["HIDE_ICONS" => "Y"]); ?>
     </section>
 <?php endif; ?>
 
@@ -112,6 +119,6 @@
                 "DISPLAY_DATE"  => "N",
                 "DISPLAY_PREVIEW_TEXT" => "N",
                 "AJAX_MODE"     => "N",
-        ], false, ["HIDE_ICONS" => "Y"]); ?>
+        ], $component, ["HIDE_ICONS" => "Y"]); ?>
     </section>
 <?php endif; ?>

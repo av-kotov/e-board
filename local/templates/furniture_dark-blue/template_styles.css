@@ -383,4 +383,49 @@ div.menu-clear-left { clear:left; }
 /*Common Elements */
 div.content-form { padding-left:1em; }
 
+#banner-search {
+	width: 880px;              /* ровно как #content */
+	margin: 0 auto 20px;
+	box-sizing: border-box;    /* ← ключевое: padding внутрь, а не наружу */
+	background: #22347a;
+	padding: 24px 30px;
+	overflow: hidden;          /* убирает «ступеньку», если что-то торчит */
+}
 
+.board-search__form {
+	display: flex;
+	gap: 10px;
+	margin: 0;                 /* у form бывает свой margin из common.css */
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.board-search__input {
+	flex: 1 1 auto;
+	min-width: 0;              /* ← без этого flex-элемент не даёт себя сжать */
+	padding: 11px 14px;
+	font-size: 15px;
+	border: 1px solid #d5d5d5;
+	background: #fff;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+.board-search__btn {
+	flex: 0 0 auto;
+	padding: 11px 28px;
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+	background: #ef7f1a;
+	color: #fff;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+.content--wide #workarea {
+	width: 100%;
+	float: none;
+	margin-left: 0;
+}

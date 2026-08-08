@@ -10,19 +10,21 @@ IncludeTemplateLangFile(__FILE__);
 <link href="<?=SITE_TEMPLATE_PATH?>/common.css" type="text/css" rel="stylesheet" />
 <link href="<?=SITE_TEMPLATE_PATH?>/colors.css" type="text/css" rel="stylesheet" />
 
+
+
 	<!--[if lte IE 6]>
 	<style type="text/css">
-		
-		#banner-overlay { 
+
+		#banner-overlay {
 			background-image: none;
-			filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?=SITE_TEMPLATE_PATH?>images/overlay.png', sizingMethod = 'crop'); 
+			filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?=SITE_TEMPLATE_PATH?>images/overlay.png', sizingMethod = 'crop');
 		}
-		
+
 		div.product-overlay {
 			background-image: none;
 			filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?=SITE_TEMPLATE_PATH?>images/product-overlay.png', sizingMethod = 'crop');
 		}
-		
+
 	</style>
 	<![endif]-->
 
@@ -32,7 +34,7 @@ IncludeTemplateLangFile(__FILE__);
 	<div id="page-wrapper">
 	<div id="panel"><?$APPLICATION->ShowPanel();?></div>
 		<div id="header">
-			
+
 			<table id="logo">
 				<tr>
 					<td><a href="<?=SITE_DIR?>" title="<?=GetMessage('CFT_MAIN')?>"><?
@@ -44,114 +46,120 @@ $APPLICATION->IncludeFile(
 ?></a></td>
 				</tr>
 			</table>
-			
+
 			<div id="top-menu">
 				<div id="top-menu-inner">
-<?$APPLICATION->IncludeComponent("bitrix:menu", "horizontal_multilevel", array(
-	"ROOT_MENU_TYPE" => "top",
-	"MAX_LEVEL" => "2",
-	"CHILD_MENU_TYPE" => "left",
-	"USE_EXT" => "Y",
-	"MENU_CACHE_TYPE" => "A",
-	"MENU_CACHE_TIME" => "36000000",
-	"MENU_CACHE_USE_GROUPS" => "Y",
-	"MENU_CACHE_GET_VARS" => ""
-	),
-	false,
-	array(
-	"ACTIVE_COMPONENT" => "Y"
-	)
-);?>
+                    <?$APPLICATION->IncludeComponent("bitrix:menu", "horizontal_multilevel", array(
+                        "ROOT_MENU_TYPE" => "top",
+                        "MAX_LEVEL" => "2",
+                        "CHILD_MENU_TYPE" => "left",
+                        "USE_EXT" => "Y",
+                        "MENU_CACHE_TYPE" => "A",
+                        "MENU_CACHE_TIME" => "36000000",
+                        "MENU_CACHE_USE_GROUPS" => "Y",
+                        "MENU_CACHE_GET_VARS" => ""
+                        ),
+                        false,
+                        array(
+                        "ACTIVE_COMPONENT" => "Y"
+                        )
+                    );?>
 				</div>
 			</div>
-			
-			<div id="top-icons">
-				<a href="<?=SITE_DIR?>" class="home-icon" title="<?=GetMessage('CFT_MAIN')?>"></a>
-				<a href="<?=SITE_DIR?>search/" class="search-icon" title="<?=GetMessage('CFT_SEARCH')?>"></a>
-				<a href="<?=SITE_DIR?>contacts/" class="feedback-icon" title="<?=GetMessage('CFT_FEEDBACK')?>"></a>
-			</div>
-		
-		</div>
-		
-		<div id="banner">		
-			<table id="banner-layout">
-				<tr>
-					<td id="banner-image"><div><img src="<?=SITE_TEMPLATE_PATH?>/images/head.jpg" alt=""/></div></td>
-					<td id="banner-slogan">
-<?
-$APPLICATION->IncludeFile(
-	SITE_DIR."include/motto.php",
-	Array(),
-	Array("MODE"=>"html")
-);
-?>
-					</td>
-				</tr>
-			</table>
-			<div id="banner-overlay"></div>	
-		</div>
-		
-		<div id="content">
-		
-			<div id="sidebar">
-<?$APPLICATION->IncludeComponent("bitrix:menu", "left", array(
-	"ROOT_MENU_TYPE" => "left",
-	"MENU_CACHE_TYPE" => "A",
-	"MENU_CACHE_TIME" => "36000000",
-	"MENU_CACHE_USE_GROUPS" => "Y",
-	"MENU_CACHE_GET_VARS" => array(
-	),
-	"MAX_LEVEL" => "1",
-	"CHILD_MENU_TYPE" => "left",
-	"USE_EXT" => "Y",
-	"ALLOW_MULTI_SELECT" => "N"
-	),
-	false,
-	array(
-		"ACTIVE_COMPONENT" => "Y"
-	)
-);?>
-				<div class="content-block">
-					<div class="content-block-inner">
-						<h3><?=GetMessage('CFT_NEWS')?></h3>
-<?
-$APPLICATION->IncludeFile(
-	SITE_DIR."include/news.php",
-	Array(),
-	Array("MODE"=>"html")
-);
-?>
-					</div>
-				</div>
-				
-				<div class="content-block">
-					<div class="content-block-inner">
-						
-<?
-$APPLICATION->IncludeComponent("bitrix:search.form", "flat", Array(
-	"PAGE" => "#SITE_DIR#search/",
-),
-	false
-);
-?>
-					</div>
-				</div>
 
-				<div class="information-block">
-					<div class="top"></div>
-					<div class="information-block-inner">
-						<h3><?=GetMessage('CFT_FEATURED')?></h3>
-<?
-$APPLICATION->IncludeFile(
-	SITE_DIR."include/random.php",
-	Array(),
-	Array("MODE"=>"html")
-);
-?>						
-					</div>
-					<div class="bottom"></div>
-				</div>
+<!--			<div id="top-icons">-->
+<!--				<a href="--><?php //=SITE_DIR?><!--" class="home-icon" title="--><?php //=GetMessage('CFT_MAIN')?><!--"></a>-->
+<!--				<a href="--><?php //=SITE_DIR?><!--search/" class="search-icon" title="--><?php //=GetMessage('CFT_SEARCH')?><!--"></a>-->
+<!--				<a href="--><?php //=SITE_DIR?><!--contacts/" class="feedback-icon" title="--><?php //=GetMessage('CFT_FEEDBACK')?><!--"></a>-->
+<!--			</div>-->
+
+		</div>
+        <?
+        $isBoard  = $APPLICATION->GetCurPage(false) === SITE_DIR.'ads/';
+        $isDetail = $_REQUEST['ELEMENT_ID'] ?? 0;
+        $isList   = $isBoard && !$isDetail;
+        ?>
+
+        <?if ($isList):?>
+            <div id="banner-search">
+                <?$APPLICATION->IncludeComponent(
+        "bitrix:search.title",
+        "board-search",
+                    [
+                        "NUM_CATEGORIES" => "1",
+                        "TOP_COUNT" => "5",
+                        "CHECK_DATES" => "N",
+                        "SHOW_OTHERS" => "N",
+                        "PAGE" => SITE_DIR."search/",
+                        "CATEGORY_0_TITLE" => "Объявления",
+                        "CATEGORY_0" => [
+                            0 => "iblock_board",
+                        ],
+                        "CATEGORY_0_iblock_board" => [
+                            0 => "8",
+                        ],
+                        "SHOW_INPUT" => "Y",
+                        "INPUT_ID" => "board-search-input",
+                        "CONTAINER_ID" => "board-search",
+                        "PRICE_CODE" => "",
+                        "SHOW_PREVIEW" => "Y",
+                        "PREVIEW_TRUNCATE_LEN" => "80",
+                        "CONVERT_CURRENCY" => "N",
+                        "COMPONENT_TEMPLATE" => "board-search",
+                        "ORDER" => "date",
+                        "USE_LANGUAGE_GUESS" => "Y"
+                    ],
+        false
+                );?>
+            </div>
+        <?else:?>
+            <div id="banner">
+                <table id="banner-layout">
+                    <tr>
+                        <td id="banner-image"><div><img src="<?=SITE_TEMPLATE_PATH?>/images/head.jpg" alt=""/></div></td>
+                        <td id="banner-slogan">
+                            <?$APPLICATION->IncludeFile(
+                                    SITE_DIR."include/motto.php",
+                                    Array(),
+                                    Array("MODE"=>"html")
+                            );?>
+                        </td>
+                    </tr>
+                </table>
+                <div id="banner-overlay"></div>
+            </div>
+        <?endif;?>
+
+
+		<div id="content">
+
+
+
+			<div id="sidebar">
+                <?if ($isBoard && $isDetail <= 0):?>
+                    <?$APPLICATION->IncludeComponent("avoska:board.filter", ".default", [
+                            "IBLOCK_TYPE"  => "board",
+                            "IBLOCK_ID"    => 8,
+                            "FILTER_NAME"  => "arBoardFilter",
+                            "LIST_URL"     => SITE_DIR."ads/",
+                            "CACHE_TYPE"   => "A",
+                            "CACHE_TIME"   => 36000000,
+                    ]);?>
+                <?else:?>
+                    <div class="content-block">
+                        <div class="content-block-inner">
+                            <h3><?=GetMessage('CFT_NEWS')?></h3>
+                                <?
+                                    $APPLICATION->IncludeFile(
+                                        SITE_DIR."include/news.php",
+                                        Array(),
+                                        Array("MODE"=>"html")
+                                    );
+                                    ?>
+                        </div>
+                    </div>
+                <?endif;?>
+
 			</div>
-		
 			<div id="workarea">
 				<h1 id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>

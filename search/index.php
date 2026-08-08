@@ -9,7 +9,10 @@ $APPLICATION->SetTitle("Поиск");
 	"USE_TITLE_RANK" => "N",
 	"DEFAULT_SORT" => "rank",
 	"arrFILTER" => array(
-		0 => "no",
+		0 => "iblock_board",
+	),
+	"arrFILTER_iblock_board" => array(
+		0 => "8",
 	),
 	"SHOW_WHERE" => "N",
 	"SHOW_WHEN" => "N",
@@ -19,7 +22,7 @@ $APPLICATION->SetTitle("Поиск");
 	"AJAX_OPTION_JUMP" => "N",
 	"AJAX_OPTION_STYLE" => "Y",
 	"AJAX_OPTION_HISTORY" => "N",
-	"CACHE_TYPE" => "A",
+	"CACHE_TYPE" => "N",
 	"CACHE_TIME" => "36000000",
 	"DISPLAY_TOP_PAGER" => "N",
 	"DISPLAY_BOTTOM_PAGER" => "Y",
@@ -31,7 +34,9 @@ $APPLICATION->SetTitle("Поиск");
 	"SHOW_ITEM_DATE_CHANGE" => "N",
 	"SHOW_ORDER_BY" => "N",
 	"SHOW_TAGS_CLOUD" => "N",
-	"AJAX_OPTION_ADDITIONAL" => ""
+	"AJAX_OPTION_ADDITIONAL" => "",
+	"NO_WORD_LOGIC" => "N",
+	"USE_LANGUAGE_GUESS" => "Y",
 	),
 	false
 );?>

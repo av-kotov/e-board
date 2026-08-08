@@ -62,7 +62,7 @@ $APPLICATION->SetTitle("Объявления");
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
-		"NEWS_COUNT" => "20",
+		"NEWS_COUNT" => "5",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -91,6 +91,7 @@ $APPLICATION->SetTitle("Объявления");
 		"COMPONENT_TEMPLATE" => "board-new",
 		"IMG_HEIGHT" => "200",
 		"IMG_WIDTH" => "200",
+        "FILTER_NAME" => "arBoardFilter",
 		"VARIABLE_ALIASES" => [
 			"SECTION_ID" => "SECTION_ID",
 			"ELEMENT_ID" => "ELEMENT_ID",

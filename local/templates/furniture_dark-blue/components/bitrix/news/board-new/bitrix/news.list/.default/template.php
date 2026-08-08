@@ -69,7 +69,13 @@
                 <small>
                     <?=$arProperty["NAME"]?>:&nbsp;
 
-                    <?if(is_array($arProperty["DISPLAY_VALUE"])):?>
+                    <?if($pid == "PRICE"):?>
+                        <?if(is_numeric($arProperty["VALUE"]) && $arProperty["VALUE"] > 0):?>
+                            <?=number_format((float)$arProperty["VALUE"], 0, '', '&nbsp;')?>&nbsp;₽
+                        <?else:?>
+                            Цена договорная
+                        <?endif;?>
+                    <?elseif(is_array($arProperty["DISPLAY_VALUE"])):?>
                         <?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
                     <?else:?>
                         <?=$arProperty["DISPLAY_VALUE"];?>
