@@ -383,4 +383,38 @@ div.menu-clear-left { clear:left; }
 /*Common Elements */
 div.content-form { padding-left:1em; }
 
+#banner {
+	height: 120px;
+}
 
+#banner-search {
+	background: #22347a;
+	padding: 24px 30px;
+	margin-bottom: 20px;
+}
+.board-search__form {
+	display: flex;
+	gap: 10px;
+	margin: 0;
+}
+.board-search__input {
+	flex: 1 1 auto;
+	min-width: 0;
+	padding: 11px 14px;
+	font-size: 15px;
+	border: 1px solid #d5d5d5;
+	background: #fff;
+	box-sizing: border-box;
+}
+.board-search__btn {
+	flex: 0 0 auto;
+	padding: 11px 28px;
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	background: #ef7f1a;
+	color: #fff;
+	cursor: pointer;
+	white-space: nowrap;
+}
+.board-search__btn:hover { background: #d96f10; }

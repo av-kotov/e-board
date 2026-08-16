@@ -9,6 +9,10 @@ IncludeTemplateLangFile(__FILE__);
 <?$APPLICATION->ShowHead();?>
 <link href="<?=SITE_TEMPLATE_PATH?>/common.css" type="text/css" rel="stylesheet" />
 <link href="<?=SITE_TEMPLATE_PATH?>/colors.css" type="text/css" rel="stylesheet" />
+    <?
+    \bitrix\Main\Page\Asset::getInstance()->addCss("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
+    \bitrix\Main\Page\Asset::getInstance()->addJs("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js");
+    ?>
 
 	<!--[if lte IE 6]>
 	<style type="text/css">
@@ -72,68 +76,81 @@ $APPLICATION->IncludeFile(
 			</div>
 		
 		</div>
-		
-		<div id="banner">		
-			<table id="banner-layout">
-				<tr>
-					<td id="banner-image"><div><img src="<?=SITE_TEMPLATE_PATH?>/images/head.jpg" alt=""/></div></td>
-					<td id="banner-slogan">
-<?
-$APPLICATION->IncludeFile(
-	SITE_DIR."include/motto.php",
-	Array(),
-	Array("MODE"=>"html")
-);
-?>
-					</td>
-				</tr>
-			</table>
-			<div id="banner-overlay"></div>	
-		</div>
-		
+        <?$isList = $APPLICATION->GetCurPage(false) === SITE_DIR.'ads/' && empty($_REQUEST['ELEMENT_ID']);?>
+        <div id="banner">
+            <?if ($isList): ?>
+                <div id="banner-search">
+                    <?$APPLICATION->IncludeComponent("bitrix:search.form", "flat", Array(
+                            "PAGE" => "#SITE_DIR#search/",
+                    ), false);?>
+                </div>
+            <?else:?>
+                <table id="banner-layout">
+                    <tr>
+                        <td id="banner-image"><div><img src="<?=SITE_TEMPLATE_PATH?>/images/head.jpg" alt=""/></div></td>
+                        <td id="banner-slogan">
+                            <?$APPLICATION->IncludeFile(SITE_DIR."include/motto.php", Array(), Array("MODE"=>"html"));?>
+                        </td>
+                    </tr>
+                </table>
+                <div id="banner-overlay"></div>
+            <?endif;?>
+        </div>
+
+
 		<div id="content">
 		
 			<div id="sidebar">
-<?$APPLICATION->IncludeComponent("bitrix:menu", "left", array(
-	"ROOT_MENU_TYPE" => "left",
-	"MENU_CACHE_TYPE" => "A",
-	"MENU_CACHE_TIME" => "36000000",
-	"MENU_CACHE_USE_GROUPS" => "Y",
-	"MENU_CACHE_GET_VARS" => array(
-	),
-	"MAX_LEVEL" => "1",
-	"CHILD_MENU_TYPE" => "left",
-	"USE_EXT" => "Y",
-	"ALLOW_MULTI_SELECT" => "N"
-	),
-	false,
-	array(
-		"ACTIVE_COMPONENT" => "Y"
-	)
-);?>
+                <?if ($isList): ?>
+                    <?$APPLICATION->IncludeComponent("avoska:board.filter", ".default", [
+                            "IBLOCK_TYPE"  => "board",
+                            "IBLOCK_ID"    => 8,
+                            "FILTER_NAME"  => "arBoardFilter",
+                            "LIST_URL"     => SITE_DIR."ads/",
+                            "CACHE_TYPE"   => "A",
+                            "CACHE_TIME"   => 36000000,
+                    ]);?>
+                <?else:?>
+
+                <?$APPLICATION->IncludeComponent("bitrix:menu", "left", array(
+                    "ROOT_MENU_TYPE" => "left",
+                    "MENU_CACHE_TYPE" => "A",
+                    "MENU_CACHE_TIME" => "36000000",
+                    "MENU_CACHE_USE_GROUPS" => "Y",
+                    "MENU_CACHE_GET_VARS" => array(
+                    ),
+                    "MAX_LEVEL" => "1",
+                    "CHILD_MENU_TYPE" => "left",
+                    "USE_EXT" => "Y",
+                    "ALLOW_MULTI_SELECT" => "N"
+                    ),
+                    false,
+                    array(
+                        "ACTIVE_COMPONENT" => "Y"
+                    )
+                );?>
 				<div class="content-block">
 					<div class="content-block-inner">
 						<h3><?=GetMessage('CFT_NEWS')?></h3>
-<?
-$APPLICATION->IncludeFile(
-	SITE_DIR."include/news.php",
-	Array(),
-	Array("MODE"=>"html")
-);
-?>
+                            <?
+                            $APPLICATION->IncludeFile(
+                                SITE_DIR."include/news.php",
+                                Array(),
+                                Array("MODE"=>"html")
+                            );
+                            ?>
 					</div>
 				</div>
 				
 				<div class="content-block">
 					<div class="content-block-inner">
-						
-<?
-$APPLICATION->IncludeComponent("bitrix:search.form", "flat", Array(
-	"PAGE" => "#SITE_DIR#search/",
-),
-	false
-);
-?>
+                        <?
+                        $APPLICATION->IncludeComponent("bitrix:search.form", "flat", Array(
+                            "PAGE" => "#SITE_DIR#search/",
+                        ),
+                            false
+                        );
+                        ?>
 					</div>
 				</div>
 
@@ -141,16 +158,17 @@ $APPLICATION->IncludeComponent("bitrix:search.form", "flat", Array(
 					<div class="top"></div>
 					<div class="information-block-inner">
 						<h3><?=GetMessage('CFT_FEATURED')?></h3>
-<?
-$APPLICATION->IncludeFile(
-	SITE_DIR."include/random.php",
-	Array(),
-	Array("MODE"=>"html")
-);
-?>						
+                            <?
+                            $APPLICATION->IncludeFile(
+                                SITE_DIR."include/random.php",
+                                Array(),
+                                Array("MODE"=>"html")
+                            );
+                            ?>
 					</div>
 					<div class="bottom"></div>
 				</div>
+                <?endif;?>
 			</div>
 		
 			<div id="workarea">

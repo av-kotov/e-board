@@ -99,7 +99,7 @@ $this->setFrameMode(true);
 		"ACTIVE_DATE_FORMAT" => $arParams["LIST_ACTIVE_DATE_FORMAT"],
 		"USE_PERMISSIONS" => $arParams["USE_PERMISSIONS"],
 		"GROUP_PERMISSIONS" => $arParams["GROUP_PERMISSIONS"],
-		"FILTER_NAME" => $arParams["FILTER_NAME"],
+		"FILTER_NAME" => "arBoardFilter",
 		"HIDE_LINK_WHEN_NO_DETAIL" => $arParams["HIDE_LINK_WHEN_NO_DETAIL"],
 		"CHECK_DATES" => $arParams["CHECK_DATES"],
         "IMG_HEIGHT" => $arParams["IMG_HEIGHT"],

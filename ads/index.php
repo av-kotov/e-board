@@ -6,7 +6,6 @@ $APPLICATION->SetTitle("Объявления");
 <div class="ads-toolbar">
     <a href="add.php" class="btn btn--primary"> + Добавить объявление </a>
 </div>
-
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
 	"board-new", 
@@ -94,7 +93,8 @@ $APPLICATION->SetTitle("Объявления");
 		"VARIABLE_ALIASES" => [
 			"SECTION_ID" => "SECTION_ID",
 			"ELEMENT_ID" => "ELEMENT_ID",
-		]
+		],
+        "FILTER_NAME" => "arBoardFilter",
 	],
 	false
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,11 +1,8 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<div id="search">
-	<form action="<?=$arResult["FORM_ACTION"]?>">
-		<div class="rounded-box">
-			<div class="search-inner-box"><input type="text" name="q" maxlength="50" /></div>
-		</div>
-		<div id="search-button">
-			<input type="submit" name="s" onfocus="this.blur();" value="<?=GetMessage("BSF_T_SEARCH_BUTTON");?>" id="search-submit-button">
-		</div>
-	</form>
-</div>
+<form action="<?=$arResult["FORM_ACTION"]?>" class="board-search__form">
+    <input type="text" name="q" maxlength="50"
+           autocomplete="off"
+           placeholder=" "
+           class="board-search__input">
+    <button type="submit" name="s" class="board-search__btn"><?=GetMessage("BSF_T_SEARCH_BUTTON")?></button>
+</form>
